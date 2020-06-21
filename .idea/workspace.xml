@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="99ceb06c-0f1e-4ea1-9cf8-8cfb631cb20c" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1dalp6klWaaymu4GRisEIbnb6BS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="99ceb06c-0f1e-4ea1-9cf8-8cfb631cb20c" name="Default Changelist" comment="" />
+      <created>1592671264143</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1592671264143</updated>
+      <workItem from="1592671265663" duration="3140000" />
+      <workItem from="1592726860705" duration="28000" />
+      <workItem from="1592738871712" duration="2351000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="812" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592739508701">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="812" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.480.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1592739508701" />
+    <state x="960" y="275" key="FileChooserDialogImpl" timestamp="1592726886548">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="960" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1592726886548" />
+    <state x="960" y="275" key="FileChooserDialogImpl/1920.480.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1592677901308" />
+    <state x="760" y="255" key="IDE.errors.dialog" timestamp="1592675862500">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="760" y="255" key="IDE.errors.dialog/1920.480.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1592675862500" />
+  </component>
+</project>
