@@ -122,7 +122,7 @@
                 "fullName": "Nettie Cobb",
                 "avatar": null
             },
-            "dialog": "6e68d13b2678d793d340b5fb0c79297d"
+            "dialog": "24c931d4acbec73f8d5f0265c8f1d413"
         },
         {
             "_id": "25ce83ca8e64e10b218c412b1",
@@ -164,9 +164,9 @@
             "user": {
                 "_id": "15ce83ca8038d9699c179048e",
                 "fullName": "Short Doyle",
-                "avatar": null
+                "avatar": "https://cdn-learn.adafruit.com/assets/assets/000/012/878/thumb100/led_strips_doge.bmp?1386611464"
             },
-            "dialog": "6e68d13b2678d793d340b5fb0c79297d"
+            "dialog": "16e68d13b2678d793d340b5fb0c79297d"
         }
     ]
 }
