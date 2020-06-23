@@ -2,10 +2,12 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 
-import {User} from './schemas'
+import {UserController} from './controllers'
 
 const app = express();
 app.use(bodyParser.json());
+
+const User = new UserController()
 
 mongoose.connect('mongodb://localhost:27017/chat', {
     useNewUrlParser: true,
@@ -13,21 +15,12 @@ mongoose.connect('mongodb://localhost:27017/chat', {
     useCreateIndex: true,
 });
 
-app.post('/create', function (req: any, res: any) {
-    const postData = {
-        email: req.body.email,
-        fullName: req.body.fullName,
-        password: req.body.password,
-    };
+app.get('/user/:id', User.show);
+app.delete('/user/:id', User.delete);
+app.post('/user/registration', User.create);
 
-    const user = new User(postData);
-    user.save()
-        .then((obj: any) =>  res.json(obj))
-        .catch( reason => res.json(reason))
-});
-
-app.listen(3005, function () {
-    console.log('Listening port 3005')
+app.listen(5000, function () {
+    console.log('Listening port 5000')
 })
 
 //"start": "json-server --port 3001 --watch db.json"

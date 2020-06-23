@@ -1,5 +1,15 @@
-import {Schema, model} from 'mongoose';
+import {Schema, model, Document} from 'mongoose';
 import isEmail from 'validator/lib/isEmail';
+
+interface IUser extends Document {
+    email: string,
+    fullName: string,
+    password: string,
+    confirmed: boolean,
+    avatar: string,
+    confirm_hash: string,
+    last_seen: Date,
+}
 
 const UserSchema = new Schema({
         email: {
@@ -29,4 +39,4 @@ const UserSchema = new Schema({
     }
 );
 
-export default model('User', UserSchema);
+export default model<IUser>('User', UserSchema);
