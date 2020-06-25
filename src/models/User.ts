@@ -1,7 +1,7 @@
 import {Schema, model, Document} from 'mongoose';
 import isEmail from 'validator/lib/isEmail';
 
-interface IUser extends Document {
+export interface IUser extends Document {
     email: string,
     fullName: string,
     password: string,
