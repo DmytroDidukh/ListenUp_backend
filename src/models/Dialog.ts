@@ -3,7 +3,7 @@ import {Schema, model, Document} from 'mongoose';
 export interface IDialog extends Document {
     author: {
         type: Schema.Types.ObjectId,
-        ref: any,
+        ref: string,
         require: true
     },
     companion: {
@@ -11,10 +11,12 @@ export interface IDialog extends Document {
         ref: string,
         require: true
     },
-    lastMessage: {
-        type: Schema.Types.ObjectId,
-        ref: string,
-    },
+    messages: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: string,
+        }
+    ]
 }
 
 const DialogSchema = new Schema({

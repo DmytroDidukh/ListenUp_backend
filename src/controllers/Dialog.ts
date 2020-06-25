@@ -5,8 +5,9 @@ class DialogController {
     index(req: Request, res: Response) {
         const authorId: string = req.params.id;
 
+        // @ts-ignore
         DialogModel.find({author: authorId})
-            .populate('dialogs')
+            .populate(['author', 'companion'])
             .exec((err, dialogs) => {
                 if (err) {
                     return res.status(404).json({
@@ -29,14 +30,12 @@ class DialogController {
             .catch(reason => res.json(reason))
     }
 
-    /*delete(req: Request, res: Response) {
+    delete(req: Request, res: Response) {
         const id: string = req.params.id
-        DialogModel.findByIdAndRemove(id)
-            .then((user) => res.json({message: `User ${user && user.fullName} removed`}))
+        DialogModel.findByIdAndRemove({_id: id})
+            .then(() => res.json({message: `Dialog removed`}))
             .catch(() => res.status(404).json({message: 'Not found'}))
     }
-
-    */
 }
 
 export default DialogController;
