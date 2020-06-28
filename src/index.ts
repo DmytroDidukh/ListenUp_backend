@@ -7,9 +7,11 @@ import {
     DialogController,
     MessageController
 } from './controllers'
+import {updateLastSeen} from './middlewares'
 
 const app = express();
 app.use(bodyParser.json());
+app.use(updateLastSeen);
 
 const User = new UserController();
 const Dialog = new DialogController();
@@ -31,6 +33,7 @@ app.delete('/dialogs/:id', Dialog.delete);
 
 app.get('/messages', Messages.index);
 app.post('/messages', Messages.create);
+app.delete('/messages/:id', Messages.delete);
 
 app.listen(5000, function () {
     console.log('Listening port 5000')

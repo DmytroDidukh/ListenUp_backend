@@ -38,7 +38,7 @@ class MessageController {
     delete(req: Request, res: Response) {
         const id: string = req.params.id
         MessageModel.findByIdAndRemove({_id: id})
-            .then(() => res.json({message: `Dialog removed`}))
+            .then(() => res.json({message: `Message deleted`}))
             .catch(() => res.status(404).json({message: 'Not found'}))
     }
 }
