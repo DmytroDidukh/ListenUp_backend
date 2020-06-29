@@ -8,15 +8,14 @@ import {
     DialogController,
     MessageController
 } from './controllers'
-import {updateLastSeen} from './middlewares'
+import {updateLastSeen, checkAuth} from './middlewares'
 
 const app = express();
 dotenv.config()
 
 app.use(bodyParser.json());
 app.use(updateLastSeen);
-
-console.log(process.env.JWT_SECRET)
+app.use(checkAuth);
 
 const User = new UserController();
 const Dialog = new DialogController();
@@ -31,6 +30,7 @@ mongoose.connect('mongodb://localhost:27017/chat', {
 
 app.get('/user/:id', User.show);
 app.post('/user/registration', User.create);
+app.post('/user/login', User.login);
 app.delete('/user/:id', User.delete);
 
 app.get('/dialogs/:id', Dialog.index);

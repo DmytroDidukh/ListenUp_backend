@@ -2,11 +2,15 @@ import {NextFunction, Request, Response} from "express";
 
 import {verifyJWTToken} from '../utils'
 
-export default (req, res, next) => {
+export default (req:any, res:any, next:any) => {
+   if (req.path !== '/user/login') {
+
+   }
+
     const token = req.headers.token;
 
     verifyJWTToken(token)
-        .then((user) => {
+        .then((user: any) => {
             req.user = user;
             next()
         })
