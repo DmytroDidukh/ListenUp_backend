@@ -1,12 +1,12 @@
-import express from 'express';
+import {Request, Response} from "express";
 import { validationResult } from 'express-validator';
 import bcrypt from 'bcrypt';
 
 import { UserModel } from '../models';
 import { createJWToken} from '../utils';
 
-class User {
-  show(req: express.Request, res: express.Response) {
+class UserController {
+  show(req: Request, res: Response) {
     const id: string = req.params.id;
     UserModel.findById(id, (err, user) => {
       if (err) {
@@ -18,11 +18,7 @@ class User {
     });
   }
 
-  getMe() {
-    // TODO: Сделать возвращение инфы о самом себе (аутентификация)
-  }
-
-  create(req: express.Request, res: express.Response) {
+  create(req: Request, res: Response) {
     const postData = {
       email: req.body.email,
       fullname: req.body.fullname,
@@ -39,7 +35,7 @@ class User {
       });
   }
 
-  delete(req: express.Request, res: express.Response) {
+  delete(req: Request, res: Response) {
     const id: string = req.params.id;
     UserModel.findOneAndRemove({ _id: id })
       .then(user => {
@@ -56,7 +52,7 @@ class User {
       });
   }
 
-  login(req: express.Request, res: express.Response) {
+  login(req: Request, res: Response) {
     const postData = {
       email: req.body.email,
       password: req.body.password,
@@ -90,4 +86,4 @@ class User {
   }
 }
 
-export default User;
+export default UserController;

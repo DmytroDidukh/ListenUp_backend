@@ -16,8 +16,6 @@ export interface IMessage extends Document {
   };
 }
 
-// TODO: Сделать аттач файлов
-// attachemets:
 const MessageSchema = new Schema(
   {
     text: { type: String, require: Boolean },

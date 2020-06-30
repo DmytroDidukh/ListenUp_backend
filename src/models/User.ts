@@ -1,5 +1,6 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import { Schema, Document, model } from 'mongoose';
 import { isEmail } from 'validator';
+
 import { generatePasswordHash } from '../utils';
 
 export interface IUser extends Document {
@@ -59,6 +60,6 @@ UserSchema.pre('save', function(next) {
     });
 });
 
-const UserModel = mongoose.model<IUser>('User', UserSchema);
+const UserModel = model<IUser>('User', UserSchema);
 
 export default UserModel;
