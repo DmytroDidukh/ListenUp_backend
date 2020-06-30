@@ -1,42 +1,35 @@
-import {Schema, model, Document} from 'mongoose';
+import mongoose, { Schema, Document } from "mongoose";
 
 export interface IDialog extends Document {
-    author: {
-        type: Schema.Types.ObjectId,
-        ref: string,
-        require: true
-    },
-    companion: {
-        type: Schema.Types.ObjectId,
-        ref: string,
-        require: true
-    },
-    messages: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: string,
-        }
-    ]
+  partner: {
+    type: Schema.Types.ObjectId;
+    ref: string;
+    require: true;
+  };
+  author: {
+    type: Schema.Types.ObjectId;
+    ref: string;
+    require: true;
+  };
+  messages: [
+    {
+      type: Schema.Types.ObjectId;
+      ref: string;
+    }
+  ];
 }
 
-const DialogSchema = new Schema({
-        author: {
-            type: Schema.Types.ObjectId,
-            ref: 'User',
-        },
-        companion: {
-            type: Schema.Types.ObjectId,
-            ref: 'User',
-        },
-        lastMessage: {
-            type: Schema.Types.ObjectId,
-            ref: 'Message',
-        }
-    },
-    {
-        timestamps: true
-    }
+const DialogSchema = new Schema(
+  {
+    partner: { type: Schema.Types.ObjectId, ref: "User" },
+    author: { type: Schema.Types.ObjectId, ref: "User" },
+    lastMessage: { type: Schema.Types.ObjectId, ref: "Message" }
+  },
+  {
+    timestamps: true
+  }
 );
 
-export default model<IDialog>('Dialog', DialogSchema);
+const DialogModel = mongoose.model<IDialog>("Dialog", DialogSchema);
 
+export default DialogModel;
