@@ -41,8 +41,3 @@ app.delete('/messages/:id', Messages.delete);
 app.listen(process.env.PORT, function() {
   console.log(`Server: http://localhost:${process.env.PORT}`);
 });
-
-// TODO:
-// Sockets: Сделать получение сообщений/я через GET запрос. То есть, когда придет сообщение от сокета
-// то мы посылаем запрос на сервер, чтоыб поулчить последнее сообщение из сервера, а не отправлять
-// всю инфу в самом сокете.
