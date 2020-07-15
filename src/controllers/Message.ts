@@ -1,8 +1,15 @@
 import {Request, Response} from "express";
+import socket from "socket.io";
 
 import { MessageModel } from "../models";
 
 class MessageController {
+  io: socket.Server
+
+  constructor(io: socket.Server) {
+    this.io = io
+  }
+
   index(req: Request, res: Response) {
     const dialogId: string = req.query.dialog;
 
@@ -18,7 +25,7 @@ class MessageController {
       });
   }
 
-  create(req: Request, res: Response) {
+  create = (req: Request, res: Response) => {
     // @ts-ignore
     const userId = req.user._id;
 
@@ -34,6 +41,7 @@ class MessageController {
       .save()
       .then((obj: any) => {
         res.json(obj);
+        this.io.emit('NEW_MESSAGE', obj)
       })
       .catch(reason => {
         res.json(reason);

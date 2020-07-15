@@ -1,10 +1,19 @@
 import bodyParser from "body-parser";
+import socket from "socket.io";
 
 import {checkAuth, updateLastSeen} from "../middlewares";
-import {DialogController, MessageController, UserController} from "../controllers";
+import {
+    MessageCtrl,
+    DialogCtrl,
+    UserCtrl
+} from "../controllers";
 import {loginValidation} from "../utils/validations";
 
-export default (app: any) => {
+export default (app: any, io: socket.Server) => {
+    const UserController = new UserCtrl(io);
+    const DialogController = new DialogCtrl(io);
+    const MessageController = new MessageCtrl(io);
+
     app.use(bodyParser.json());
     app.use(updateLastSeen);
     app.use(checkAuth);

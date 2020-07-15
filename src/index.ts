@@ -10,16 +10,14 @@ const app = express();
 const http = createServer(app);
 const io = socket(http);
 
+//TODO: https://www.youtube.com/watch?v=BvHEFb6W_UE&list=PL0FGkDGJQjJFDr8R3D6dFVa1nhce_2-ly&index=14 41 min
+
 dotenv.config();
-createRoutes(app)
+createRoutes(app, io)
 
 io.on('connection', (socket: any) => {
   console.log('CONNECTED');
   socket.emit('test command', 'qwertyQWERTY')
-
-  socket.on('222', (msg: any) => {
-    console.log('CLIENT SAY:' + msg)
-  })
 });
 http.listen(process.env.PORT, () => {
   console.log(`Server: http://localhost:${process.env.PORT}`);

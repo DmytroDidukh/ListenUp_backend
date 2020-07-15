@@ -1,11 +1,18 @@
 import {Request, Response} from "express";
 import {validationResult} from 'express-validator';
 import bcrypt from 'bcrypt';
+import socket from 'socket.io';
 
 import {UserModel} from '../models';
 import {createJWToken} from '../utils';
 
 class UserController {
+    io: socket.Server
+
+    constructor(io: socket.Server) {
+        this.io = io
+    }
+
     show(req: Request, res: Response) {
         const id: string = req.params.id;
         UserModel.findById(id, (err, user) => {

@@ -1,8 +1,15 @@
 import {Request, Response} from "express";
+import socket from "socket.io";
 
 import {DialogModel, MessageModel} from "../models";
 
 class DialogController {
+    io: socket.Server
+
+    constructor(io: socket.Server) {
+        this.io = io
+    }
+
     index(req: Request, res: Response) {
         // @ts-ignore
         const authorId = req.user._id;
