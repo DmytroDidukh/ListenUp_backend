@@ -13,7 +13,7 @@ class UserController {
         this.io = io
     }
 
-    show(req: Request, res: Response) {
+    show = (req: Request, res: Response) => {
         const id: string = req.params.id;
         UserModel.findById(id, (err, user) => {
             if (err) {
@@ -25,7 +25,7 @@ class UserController {
         });
     }
 
-    getMe(req: Request, res: Response) {
+    getMe = (req: Request, res: Response) => {
         // @ts-ignore
         const id: string = req.user._id;
         UserModel.findById(id, (err, user) => {
@@ -38,7 +38,7 @@ class UserController {
         });
     }
 
-    create(req: Request, res: Response) {
+    create = (req: Request, res: Response) => {
         const postData = {
             email: req.body.email,
             fullname: req.body.fullname,
@@ -55,7 +55,7 @@ class UserController {
             });
     }
 
-    delete(req: Request, res: Response) {
+    delete = (req: Request, res: Response) => {
         const id: string = req.params.id;
         UserModel.findOneAndRemove({_id: id})
             .then(user => {
@@ -72,7 +72,7 @@ class UserController {
             });
     }
 
-    login(req: Request, res: Response) {
+    login = (req: Request, res: Response) => {
         const postData = {
             email: req.body.email,
             password: req.body.password,
